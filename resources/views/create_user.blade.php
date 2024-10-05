@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
+@section('content')
 
 <head>
     <meta charset="UTF-8">
@@ -20,25 +20,29 @@
 
         .card {
             display: flex;
+            flex-direction: column;
+            align-items: center;
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            width: 500px;
+            width: 400px;
             max-width: 100%;
+            padding: 20px;
         }
 
         .card img {
-            width: 200px;
-            height: auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
             object-fit: cover;
-            border-right: 2px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
 
         .form-container {
-            padding: 20px;
-            flex-grow: 1;
+            width: 100%;
+            text-align: center;
         }
 
         label {
@@ -46,9 +50,11 @@
             font-weight: 500;
             margin-top: 10px;
             color: #333;
+            text-align: left;
         }
 
-        input[type="text"] {
+        input[type="text"],
+        select {
             width: 80%;
             padding: 8px;
             margin-top: 5px;
@@ -113,6 +119,4 @@
             </form>
         </div>
     </div>
-</body>
-
-</html>
+    @endsection
