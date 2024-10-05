@@ -73,6 +73,13 @@
         input[type="submit"]:hover {
             background-color: #094ca1;
         }
+
+        .text-danger {
+            color: #ff0000;
+            font-size: 12px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 
@@ -84,13 +91,23 @@
             <form action="{{ route('user.store') }}" method="POST">
                 @csrf
                 <label for="nama">Nama:</label>
-                <input type="text" id="nama" name="nama">
+                <input type="text" id="nama" name="nama" placeholder="Masukkan Nama">
+                @foreach($errors->get('nama') as $msg)
+                <p class="text-danger">{{ $msg }}</p>
+                @endforeach
 
                 <label for="npm">NPM:</label>
-                <input type="text" id="npm" name="npm">
+                <input type="text" id="npm" name="npm" placeholder="Masukkan NPM">
+                @foreach($errors->get('npm') as $msg)
+                <p class="text-danger">{{ $msg }}</p>
+                @endforeach
 
-                <label for="kelas">Kelas:</label>
-                <input type="text" id="kelas" name="kelas">
+                <label for="id_kelas">Kelas :</label>
+                <select name="kelas_id" id="kelas_id" required>
+                    @foreach ($kelas as $kelasItem)
+                    <option value="{{ $kelasItem->id }}">{{ $kelasItem->nama_kelas }}</option>
+                    @endforeach
+                </select>
 
                 <input type="submit" value="Submit">
             </form>
