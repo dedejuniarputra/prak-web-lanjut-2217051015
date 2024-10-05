@@ -14,7 +14,6 @@
             height: 100vh;
             margin: 0;
             background-color: #a2d5f2;
-            /* Warna biru laut soft */
         }
 
         .profile-container {
@@ -63,10 +62,10 @@
             <strong>Nama:</strong> <?= $nama ?>
         </div>
         <div class="info">
-            <strong>Kelas:</strong> <?= $kelas ?>
+            <strong>NPM:</strong> <?= $npm ?>
         </div>
         <div class="info">
-            <strong>NPM:</strong> <?= $npm ?>
+            <p><strong>Kelas:</strong> <?= $nama_kelas ?? 'Kelas tidak ditemukan' ?></p>
         </div>
     </div>
 </body>
