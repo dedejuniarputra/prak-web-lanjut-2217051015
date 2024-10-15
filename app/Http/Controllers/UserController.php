@@ -70,7 +70,7 @@ class UserController extends Controller
         if ($request->hasFile('foto')) {
             $file = $request->file('foto');
             $filename = time() . '_' . $file->getClientOriginalName();
-            // Simpan file ke storage/public/uploads
+            // Simpan file ke storage/public/upload
             $file->storeAs('uploads', $filename, 'public');
 
             // Simpan data user ke database
@@ -90,7 +90,7 @@ class UserController extends Controller
             ]);
         }
 
-        return redirect()->to('/')->with('success', 'User Berhasil dibuat');
+        return redirect()->to('/')->with('success', 'User Berhasil dibuat'); //modul 8
     }
 
     public function edit($id)
