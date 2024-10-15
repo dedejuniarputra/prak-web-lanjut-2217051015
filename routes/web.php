@@ -27,7 +27,7 @@ Route::get('/user/create', [UserController::class, 'create'])->name('user.create
 
 Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
 
-Route::get('/', [UserController::class, 'index'])->name('user.list');
+Route::get('/', [UserController::class, 'index'])->name('user.list'); //modul 8
 
 Route::get('/show{id}', [UserController::class, 'show'])->name('users.show');
 
@@ -39,5 +39,5 @@ Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.dest
 
 Route::get('/show{id}', [UserController::class, 'show'])->name('user.show');
 
-// Route::get('/user/list', 'UserController@list'); // Jika ingin pakai GET
+
 
