@@ -58,14 +58,18 @@
 <body>
     <div class="profile-container">
         <img src="https://i.pinimg.com/564x/d9/f0/dd/d9f0dd60f2de23fb4ea8fa950a198b62.jpg" alt="Foto Profil">
+
         <div class="info">
-            <strong>Nama:</strong> <?= $nama ?>
+            <p class="label">Nama :</p>
+            <p class="value">{{ $user->nama }}</p>
         </div>
         <div class="info">
-            <strong>NPM:</strong> <?= $npm ?>
+            <p class="label">NPM :</p>
+            <p class="value">{{ $user->npm }}</p>
         </div>
         <div class="info">
-            <p><strong>Kelas:</strong> <?= $nama_kelas ?? 'Kelas tidak ditemukan' ?></p>
+            <p class="label">Kelas :</p>
+            <p class="value">{{ $user->nama_kelas ?? 'Kelas Tidak Ditemukan' }}</p>
         </div>
     </div>
 </body>
