@@ -94,16 +94,19 @@
             <img src="{{ asset('img/background.jpeg') }}" alt="Foto Profil">
 
             <div class="form-container">
-                <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('user.update', $user['id']) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <label for="nama">Nama:</label>
-                    <input type="text" id="nama" name="nama" placeholder="Masukkan Nama">
+                    <input type="text" id="nama" name="nama" placeholder="Masukkan Nama"
+                        value = "{{ old('nama', $user->nama) }}">
                     @foreach ($errors->get('nama') as $msg)
                         <p class="text-danger">{{ $msg }}</p>
                     @endforeach
 
                     <label for="npm">NPM:</label>
-                    <input type="text" id="npm" name="npm" placeholder="Masukkan NPM">
+                    <input type="text" id="npm" name="npm" placeholder="Masukkan NPM"
+                        value = "{{ old('nama', $user->npm) }}">
                     @foreach ($errors->get('npm') as $msg)
                         <p class="text-danger">{{ $msg }}</p>
                     @endforeach
@@ -111,16 +114,20 @@
                     <label for="id_kelas">Kelas :</label>
                     <select name="kelas_id" id="kelas_id" required>
                         @foreach ($kelas as $kelasItem)
-                            <option value="{{ $kelasItem->id }}">{{ $kelasItem->nama_kelas }}</option>
+                            <option value="{{ $kelasItem->id }}" {{ $kelasItem->id == $user->kelas_id ? 'selected' : '' }}>
+                                {{ $kelasItem->nama_kelas }}
+                            </option>
                         @endforeach
                     </select>
 
-                    <label for="foto">Foto Profil:</label><br>
-                    <input type="file" id="foto" name="foto" accept="image/*"><br><br>
+                    <label for="foto">Foto : </label>
+                    <input type="file" id="foto" name="foto"><br><br>
+                    @if ($user->foto)
+                        <img src="{{ asset('storage/uploads/' . $user->foto) }}" class="card-img-top" alt="Foto Profil">
+                    @endif
+                    <br>
 
-                    <input type="submit" value="Submit">
-
-                    <a href="{{ route('user.list') }}" class="btn-list-user">List User</a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
