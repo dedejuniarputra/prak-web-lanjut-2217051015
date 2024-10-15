@@ -57,7 +57,7 @@
 
 <body>
     <div class="profile-container">
-        <img src="https://i.pinimg.com/564x/d9/f0/dd/d9f0dd60f2de23fb4ea8fa950a198b62.jpg" alt="Foto Profil">
+        <img src="{{ asset('storage/uploads/' . $user->foto) }}" class="card-img-top" alt="">
 
         <div class="info">
             <p class="label">Nama :</p>
@@ -69,7 +69,7 @@
         </div>
         <div class="info">
             <p class="label">Kelas :</p>
-            <p class="value">{{ $user->nama_kelas ?? 'Kelas Tidak Ditemukan' }}</p>
+            <p class="value">{{ $nama_kelas ?? 'Kelas Tidak Ditemukan' }}</p>
         </div>
     </div>
 </body>
