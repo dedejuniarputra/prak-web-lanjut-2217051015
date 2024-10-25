@@ -26,7 +26,7 @@
                         <th scope="col"><b>NPM</b></th>
                         <th scope="col"><b>Kelas</b></th>
                         <th scope="col"><b>Fakultas</b></th>
-                        <th scope="col"><b>Jurusan</b></th>
+                        <th scope="col"><b>Jurusan</b></th> //
                         <th scope="col"><b>Aksi</b></th>
                     </tr>
                 </thead>
@@ -38,7 +38,7 @@
                             <td>{{ $user['npm'] }}</td>
                             <td>{{ $user['nama_kelas'] }}</td>
                             <td>{{ $user->nama_fakultas }}</td>
-                            <td>{{ $user->nama_jurusan }}</td>
+                            <td>{{ $user->nama_jurusan }}</td> //jurusan
                             <td>
                                 <div class="action-buttons">
                                     <a href="{{ route('user.show', $user->id) }}" class="btn btn-info btn-sm">View</a>
